@@ -1,0 +1,25 @@
+server:
+  port: 6677 #Tomcat端口
+  context-path: /
+  
+spring:
+  dubbo:
+    application:
+      name: springboot-dubbo-demo #dubbo服务的应用名
+      
+    registry:
+      address: zookeeper://192.168.1.100:2181 #?backup=192.168.1.100:2182,192.168.1.100:2183 #zookeeper地址
+      #port: 2181 #提供注册的端口
+      port: 2181 
+      
+    protocol:
+      name: dubbo
+      port: 20890 #dubbo服务对外部暴露的端口
+      status : server
+      
+ 
+    #scan: com.guoguo.service.impl #扫描的包名
+    scan: com.guoguo.*
+    
+    
+    

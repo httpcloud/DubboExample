@@ -1,0 +1,30 @@
+
+#spring.application.name=dubbo-consumer
+server: 
+  context-path: /auth
+  port: 8080
+  
+
+spring: 
+  dubbo:
+    application:
+      name: auth-consumer #应用名称
+    
+    #注册中心地址
+    protocol:
+      name: dubbo
+    registry:
+          address: zookeeper://192.168.1.100:2181?backup=192.168.1.100:2182,192.168.1.100:2183 #zookeeper地址
+   
+    #调用dubbo组建扫描的项目路径
+    scan: com.guoguo
+    #telnet端口
+    qos:
+      port: 22223
+    #检查服务是否可用默认为true，不可用时抛出异常，阻止spring初始化，为方便部署，可以改成false
+    consumer: 
+      check: false 
+
+
+
+
